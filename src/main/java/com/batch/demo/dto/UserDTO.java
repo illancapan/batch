@@ -1,4 +1,4 @@
-package com.batch.demo.model;
+package com.batch.demo.dto;
 
 import lombok.Builder;
 import lombok.Getter;

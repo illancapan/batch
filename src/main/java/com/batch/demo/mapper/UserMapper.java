@@ -1,4 +1,7 @@
-package com.batch.demo.model;
+package com.batch.demo.mapper;
+
+import com.batch.demo.dto.UserDTO;
+import com.batch.demo.model.User;
 
 public class UserMapper {
 
