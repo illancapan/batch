@@ -1,4 +1,27 @@
 package com.batch.demo.infrastructure.batch.reader;
 
-public class UserItemReader {
+import com.batch.demo.dto.UserDTO;
+import lombok.RequiredArgsConstructor;
+import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.NonTransientResourceException;
+import org.springframework.batch.item.ParseException;
+import org.springframework.batch.item.UnexpectedInputException;
+import org.springframework.stereotype.Component;
+
+import java.util.Iterator;
+
+@Component
+@RequiredArgsConstructor
+public class UserItemReader implements ItemReader<UserDTO> {
+
+    private final Iterator<UserDTO> userIterator;
+
+    @Override
+    public UserDTO read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
+        if (userIterator.hasNext()) {
+            return userIterator.next();
+        } else {
+            return null;
+        }
+    }
 }

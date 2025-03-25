@@ -5,7 +5,9 @@ import com.batch.demo.dto.UserDTO;
 import com.batch.demo.domain.model.User;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class UserMapperTest {
 
@@ -35,8 +37,8 @@ class UserMapperTest {
 
         UserDTO userDTO = UserDTO.builder()
                 .id(1L)
-                .name("John Doe")
-                .email("john.doe@example.com")
+                .name("Juan Doe")
+                .email("juan.doe@example.com")
                 .active(true)
                 .build();
 
@@ -44,8 +46,8 @@ class UserMapperTest {
 
         assertNotNull(user);
         assertEquals(1L, user.getId());
-        assertEquals("John Doe", user.getName());
-        assertEquals("john.doe@example.com", user.getEmail());
+        assertEquals("Juan Doe", user.getName());
+        assertEquals("juan.doe@example.com", user.getEmail());
         assertTrue(user.isActive());
 
     }
