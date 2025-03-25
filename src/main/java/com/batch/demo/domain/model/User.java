@@ -1,4 +1,4 @@
-package com.batch.demo.model;
+package com.batch.demo.domain.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

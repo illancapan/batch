@@ -1,7 +1,7 @@
-package com.batch.demo.mapper;
+package com.batch.demo.application.mapper;
 
 import com.batch.demo.dto.UserDTO;
-import com.batch.demo.model.User;
+import com.batch.demo.domain.model.User;
 
 public class UserMapper {
 

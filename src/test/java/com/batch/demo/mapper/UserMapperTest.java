@@ -1,7 +1,8 @@
 package com.batch.demo.mapper;
 
+import com.batch.demo.application.mapper.UserMapper;
 import com.batch.demo.dto.UserDTO;
-import com.batch.demo.model.User;
+import com.batch.demo.domain.model.User;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
