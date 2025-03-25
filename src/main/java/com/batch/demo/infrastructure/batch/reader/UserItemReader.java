@@ -18,10 +18,6 @@ public class UserItemReader implements ItemReader<UserDTO> {
 
     @Override
     public UserDTO read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
-        if (userIterator.hasNext()) {
-            return userIterator.next();
-        } else {
-            return null;
-        }
+        return userIterator.hasNext() ? userIterator.next() : null;
     }
 }
