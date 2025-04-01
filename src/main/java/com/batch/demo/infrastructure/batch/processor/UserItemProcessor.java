@@ -1,24 +1,22 @@
 package com.batch.demo.infrastructure.batch.processor;
 
 import com.batch.demo.domain.model.User;
-import com.batch.demo.dto.UserDTO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Component;
 
 
 @Component
-public class UserItemProcessor implements ItemProcessor<UserDTO, User> {
-    @Override
-    public User process(UserDTO item) throws Exception {
+public class UserItemProcessor implements ItemProcessor<User, User> {
 
-        if (item == null) {
+
+
+    @Override
+    public User process(User user) {
+        if (!user.isActive()){
             return null;
         }
-        return User.builder()
-                .id(item.getId())
-                .name(item.getName().toLowerCase())
-                .email(item.getEmail())
-                .active(item.isActive())
-                .build();
+        user.setName(user.getName().toUpperCase());
+        return user;
     }
 }

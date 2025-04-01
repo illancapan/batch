@@ -1,23 +1,29 @@
 package com.batch.demo.infrastructure.batch.reader;
 
-import com.batch.demo.dto.UserDTO;
+import com.batch.demo.domain.model.User;
+import com.batch.demo.domain.ports.UserRepositoryPort;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.item.ItemReader;
-import org.springframework.batch.item.NonTransientResourceException;
-import org.springframework.batch.item.ParseException;
-import org.springframework.batch.item.UnexpectedInputException;
 import org.springframework.stereotype.Component;
 
 import java.util.Iterator;
+import java.util.List;
 
-@Component
 @RequiredArgsConstructor
-public class UserItemReader implements ItemReader<UserDTO> {
+@Component
+public class UserItemReader implements ItemReader<User> {
 
-    private final Iterator<UserDTO> userIterator;
+    private final UserRepositoryPort userRepositoryPort;
+    private Iterator<User> userIterator;
 
     @Override
-    public UserDTO read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
+    public User read() {
+        if (userIterator == null || !userIterator.hasNext()) {
+            List<User> users = userRepositoryPort.findAll();
+            userIterator = users.iterator();
+        }
         return userIterator.hasNext() ? userIterator.next() : null;
     }
 }
+
