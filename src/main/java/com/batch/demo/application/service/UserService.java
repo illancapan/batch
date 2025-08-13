@@ -2,12 +2,12 @@ package com.batch.demo.application.service;
 
 import com.batch.demo.domain.model.User;
 import com.batch.demo.domain.ports.UserRepositoryPort;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class UserService {
 
